@@ -1,6 +1,6 @@
 $csvDirectory = ".\banzhaf_heatmap\"
 
-$csvFiles = Get-ChildItem -Path $csvDirectory -Filter *.csv -Recurse
+$csvFiles = Get-ChildItem -Path $csvDirectory -Filter *.csv
 
 $pythonScript = ".\heatmapplot.py"
 
