@@ -30,10 +30,13 @@ def main():
 
     votes_df = pd.read_csv(input_csv_path)
 
-    with open("linked_addresses.json", "r") as jsonfile:
-        linked_addresses = json.load(jsonfile)
-    for subaddresses in linked_addresses.values():
-        votes_df = votes_df[~votes_df['address'].isin(subaddresses)]
+    # with open("linked_addresses.json", "r") as jsonfile:
+    #     linked_addresses = json.load(jsonfile)
+    # for cluster in linked_addresses.values():
+    #     cluster_df = votes_df[votes_df['address'].isin(cluster)]
+    #     main_address = cluster_df.sort_values('referendum_index', axis=0, ascending=False, ignore_index=True)['address'][0]
+    #     subaddresses = [address for address in cluster if address != main_address]
+    #     votes_df = votes_df[~votes_df['address'].isin(subaddresses)]
         
     votes_or_amount = 'votes' if account_for_conviction else 'amount'
     origins = votes_df.drop_duplicates('origin')['origin'].to_list()
