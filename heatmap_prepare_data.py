@@ -36,10 +36,10 @@ def main():
 
     votes_df = pd.read_csv(input_csv_path)
 
-    with open("linked_addresses.json", "r") as jsonfile:
-        linked_addresses = json.load(jsonfile)
-    for subaddresses in linked_addresses.values():
-        votes_df = votes_df[~votes_df['address'].isin(subaddresses)]
+    # with open("linked_addresses.json", "r") as jsonfile:
+    #     linked_addresses = json.load(jsonfile)
+    # for subaddresses in linked_addresses.values():
+    #     votes_df = votes_df[~votes_df['address'].isin(subaddresses)]
         
     votes_or_amount = 'votes' if account_for_conviction else 'amount'
     origins = votes_df.drop_duplicates('origin')['origin'].to_list()
